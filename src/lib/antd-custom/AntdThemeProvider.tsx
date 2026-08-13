@@ -14,6 +14,6 @@ export function AntdThemeProvider({ children }: { children: React.ReactNode }) {
     //     return () => mq.removeEventListener('change', listener);
     //   }, []);
 
-        const { theme } = useThemeContext();
+    const { theme } = useThemeContext();
     return <ConfigProvider theme={getAntdTheme(theme)}>{children}</ConfigProvider>;
 }

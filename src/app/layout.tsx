@@ -1,8 +1,10 @@
 import AntdRegistryLayout from '@/components/layouts/AntdRegistryLayout';
-import AntdRegistry from '@/lib/antdCustom/AntdRegistry';
-import { AntdThemeProvider } from '@/lib/antdCustom/AntdThemeProvider';
-import '@/styles/globals.css';
-import '@/styles/styles.css/font.css';
+import AntdRegistry from '@/lib/antd-custom/AntdRegistry';
+import { AntdThemeProvider } from '@/lib/antd-custom/AntdThemeProvider';
+import '@/styles/base/globals.css';
+import '@/styles/utilities/font.css';
+import '@/components/custom-components/custom-container.module.css'
+import '@/styles/utilities/layout.module.css'
 import { ThemeProvider } from '@/styles/themes/ThemeProvider';
 import { generateRootCss } from '@/styles/themes/apply-token';
 import { themeInitScript } from '@/styles/themes/theme-init';
@@ -12,6 +14,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import { cookies } from 'next/headers';
 import Script from 'next/script';
 import React from 'react';
+import StyledComponentsRegistry from '@/lib/styled-components-custom/StyledComponentsRegistry';
 
 const geistSans = Geist({
     variable: '--font-geist-sans',
@@ -36,13 +39,9 @@ export default async function RootLayout({
     const cookieStore = await cookies();
     const themeCookie = cookieStore.get('theme')?.value;
 
-    console.log('SERVER — raw cookie value:', themeCookie);
-
     const validThemes: string[] = Object.values(ThemeModeEnum);
     const theme: ThemeModeEnum =
         themeCookie && validThemes.includes(themeCookie) ? (themeCookie as ThemeModeEnum) : ThemeModeEnum.LIGHT;
-
-    console.log('SERVER — resolved theme:', theme); // TEMP
 
     return (
         <html lang="en" suppressHydrationWarning data-theme={theme as string}>
@@ -55,6 +54,7 @@ export default async function RootLayout({
                 <style dangerouslySetInnerHTML={{ __html: generateRootCss() }} />
             </head>
             <body className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
+                <StyledComponentsRegistry>
                 <AntdRegistry>
                     <ThemeProvider initialTheme={theme}>
                         <AntdThemeProvider>
@@ -62,6 +62,7 @@ export default async function RootLayout({
                         </AntdThemeProvider>
                     </ThemeProvider>
                 </AntdRegistry>
+                </StyledComponentsRegistry>
             </body>
         </html>
     );
