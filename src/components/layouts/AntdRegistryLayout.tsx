@@ -1,7 +1,7 @@
 'use client';
 
 import { Layout } from 'antd';
-import MenuHeader from '@/components/layouts/MenuHeader';
+import MenuHeader from '@/components/layouts/header/MenuHeader';
 import React from 'react';
 
 const { Content } = Layout;
@@ -10,7 +10,8 @@ export default function AntdRegistryLayout({ children }: { children: React.React
   return (
     <Layout>
       <MenuHeader />
-      <Content>{children}</Content>
+      <Content>
+        {children}</Content>
     </Layout>
   );
 }
