@@ -1,5 +1,5 @@
 import styles from './page.module.css';
-import customContainer from '@/components/custom-components/custom-container.module.css';
+import containerStyled from '@/components/custom-components/custom-container.module.css';
 
 export default function HomePage() {
     return (
@@ -10,7 +10,7 @@ export default function HomePage() {
             </section>
 
             <section>
-                <div className={customContainer.flexCenter}>
+                <div className={containerStyled.flexCenter}>
                     <div>as</div>
                     <div>bs</div>
                 </div>

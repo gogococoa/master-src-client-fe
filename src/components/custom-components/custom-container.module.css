@@ -1,13 +1,11 @@
 @import '../../styles/utilities/layout.module.css';
 
 .flexBetween {
-    composes: flex between from '../../styles/utilities/layout.module.css';
-    width: 100%;
+    composes: flex between w100 from '../../styles/utilities/layout.module.css';
 }
 
 .flexCenter {
-    composes: flex center from '../../styles/utilities/layout.module.css';
-    width: 100%;
+    composes: flex center w100 from '../../styles/utilities/layout.module.css';
 }
 
 .flexColumn {

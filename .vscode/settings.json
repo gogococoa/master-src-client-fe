@@ -1,5 +1,8 @@
 {
     "js/ts.tsdk.path": "node_modules\\typescript\\lib",
     "stylelint.validate": ["css", "scss"],
-    "css.validate": false
+    "css.validate": false,
+    "files.associations": {
+        "*.module.css": "css"
+    }
 }

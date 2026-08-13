@@ -1,9 +1,9 @@
 import { ThemeToggle } from '@/components/buttons/ThemeToggle';
-import { FlexBetweenWrapper } from '@/components/custom-components/custom-container';
+import container from '@/components/custom-components/custom-container.module.css';
 import { HomeFilled } from '@ant-design/icons';
 import { Button, Layout } from 'antd';
-import { HeaderContainer } from './menu-header.module';
 import { useRouter } from 'next/navigation';
+import { HeaderContainer } from './menu-header.module';
 
 const MenuHeader = () => {
     const router = useRouter();
@@ -11,12 +11,12 @@ const MenuHeader = () => {
     return (
         <Layout>
             <HeaderContainer>
-                <FlexBetweenWrapper>
+                <div className={container.flexBetween}>
                     <Button type="text" onClick={() => router.push('/')}>
                         <HomeFilled />
                     </Button>
                     <ThemeToggle />
-                </FlexBetweenWrapper>
+                </div>
             </HeaderContainer>
         </Layout>
     );
