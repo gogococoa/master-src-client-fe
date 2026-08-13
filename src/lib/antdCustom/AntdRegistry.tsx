@@ -5,14 +5,11 @@ import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import { useRef } from 'react';
 
 export default function AntdRegistry({ children }: { children: React.ReactNode }) {
-  const cache = useRef(createCache());
+    const cache = useRef(createCache());
 
-  useServerInsertedHTML(() => (
-    <style
-      id="antd"
-      dangerouslySetInnerHTML={{ __html: extractStyle(cache.current, true) }}
-    />
-  ));
+    useServerInsertedHTML(() => (
+        <style id="antd" dangerouslySetInnerHTML={{ __html: extractStyle(cache.current, true) }} />
+    ));
 
-  return <StyleProvider cache={cache.current}>{children}</StyleProvider>;
+    return <StyleProvider cache={cache.current}>{children}</StyleProvider>;
 }

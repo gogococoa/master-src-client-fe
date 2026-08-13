@@ -5,13 +5,13 @@ export const lightTokens = {
 } as const;
 
 export const darkTokens = {
-  background: '#0a0a0a',
-  foreground: '#ededed',
+    background: '#0a0a0a',
+    foreground: '#ededed',
 } as const;
 
 export type ThemeTokens = Record<keyof typeof lightTokens, string>;
 
 export enum ThemeModeEnum {
-  LIGHT = 'light',
-  DARK = 'dark'
+    LIGHT = 'light',
+    DARK = 'dark',
 }

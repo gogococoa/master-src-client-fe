@@ -6,7 +6,7 @@ import { HeaderContainer } from './menu-header.module';
 import { useRouter } from 'next/navigation';
 
 const MenuHeader = () => {
-    const router = useRouter()
+    const router = useRouter();
 
     return (
         <Layout>

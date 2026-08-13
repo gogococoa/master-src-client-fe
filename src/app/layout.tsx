@@ -2,7 +2,7 @@ import AntdRegistryLayout from '@/components/layouts/AntdRegistryLayout';
 import AntdRegistry from '@/lib/antdCustom/AntdRegistry';
 import { AntdThemeProvider } from '@/lib/antdCustom/AntdThemeProvider';
 import '@/styles/globals.css';
-import '@/styles/styles.css/font.css'
+import '@/styles/styles.css/font.css';
 import { ThemeProvider } from '@/styles/themes/ThemeProvider';
 import { generateRootCss } from '@/styles/themes/apply-token';
 import { themeInitScript } from '@/styles/themes/theme-init';
@@ -39,25 +39,26 @@ export default async function RootLayout({
     console.log('SERVER — raw cookie value:', themeCookie);
 
     const validThemes: string[] = Object.values(ThemeModeEnum);
-  const theme: ThemeModeEnum = themeCookie && validThemes.includes(themeCookie)
-    ? (themeCookie as ThemeModeEnum)
-    : ThemeModeEnum.LIGHT;
+    const theme: ThemeModeEnum =
+        themeCookie && validThemes.includes(themeCookie) ? (themeCookie as ThemeModeEnum) : ThemeModeEnum.LIGHT;
 
-  console.log('SERVER — resolved theme:', theme); // TEMP
+    console.log('SERVER — resolved theme:', theme); // TEMP
 
     return (
         <html lang="en" suppressHydrationWarning data-theme={theme as string}>
             <head>
-                {!themeCookie && <Script id='theme-init' strategy='beforeInteractive'>{themeInitScript}</Script>}
+                {!themeCookie && (
+                    <Script id="theme-init" strategy="beforeInteractive">
+                        {themeInitScript}
+                    </Script>
+                )}
                 <style dangerouslySetInnerHTML={{ __html: generateRootCss() }} />
             </head>
             <body className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
                 <AntdRegistry>
                     <ThemeProvider initialTheme={theme}>
                         <AntdThemeProvider>
-                            <AntdRegistryLayout>
-                                 {children}
-                                </AntdRegistryLayout>
+                            <AntdRegistryLayout>{children}</AntdRegistryLayout>
                         </AntdThemeProvider>
                     </ThemeProvider>
                 </AntdRegistry>
