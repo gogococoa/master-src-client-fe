@@ -1,0 +1,15 @@
+@import '../../styles/utilities/layout.module.css';
+
+.flexBetween {
+    composes: flex between from '../../styles/utilities/layout.module.css';
+    width: 100%;
+}
+
+.flexCenter {
+    composes: flex center from '../../styles/utilities/layout.module.css';
+    width: 100%;
+}
+
+.flexColumn {
+    composes: flex column gapSm from '../../styles/utilities/layout.module.css';
+}

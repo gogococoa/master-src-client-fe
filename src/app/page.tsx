@@ -1,4 +1,5 @@
 import styles from './page.module.css';
+import customContainer from '@/components/custom-components/custom-container.module.css';
 
 export default function HomePage() {
     return (
@@ -6,6 +7,13 @@ export default function HomePage() {
             <section className={styles.hero}>
                 <h2>Welcome to My Company</h2>
                 <p>We build things people love to use.</p>
+            </section>
+
+            <section>
+                <div className={customContainer.flexCenter}>
+                    <div>as</div>
+                    <div>bs</div>
+                </div>
             </section>
 
             <section className={styles.posts}>

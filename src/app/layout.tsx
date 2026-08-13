@@ -3,8 +3,8 @@ import AntdRegistry from '@/lib/antd-custom/AntdRegistry';
 import { AntdThemeProvider } from '@/lib/antd-custom/AntdThemeProvider';
 import '@/styles/base/globals.css';
 import '@/styles/utilities/font.css';
-import '@/components/custom-components/custom-container.module.css'
-import '@/styles/utilities/layout.module.css'
+import '@/components/custom-components/custom-container.module.css';
+import '@/styles/utilities/layout.module.css';
 import { ThemeProvider } from '@/styles/themes/ThemeProvider';
 import { generateRootCss } from '@/styles/themes/apply-token';
 import { themeInitScript } from '@/styles/themes/theme-init';
@@ -55,13 +55,13 @@ export default async function RootLayout({
             </head>
             <body className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
                 <StyledComponentsRegistry>
-                <AntdRegistry>
-                    <ThemeProvider initialTheme={theme}>
-                        <AntdThemeProvider>
-                            <AntdRegistryLayout>{children}</AntdRegistryLayout>
-                        </AntdThemeProvider>
-                    </ThemeProvider>
-                </AntdRegistry>
+                    <AntdRegistry>
+                        <ThemeProvider initialTheme={theme}>
+                            <AntdThemeProvider>
+                                <AntdRegistryLayout>{children}</AntdRegistryLayout>
+                            </AntdThemeProvider>
+                        </ThemeProvider>
+                    </AntdRegistry>
                 </StyledComponentsRegistry>
             </body>
         </html>
