@@ -1,3 +1,5 @@
+@import '../animations/theme-toggle.css';
+
 :root {
     --background: #ffffff;
     --foreground: #171717;

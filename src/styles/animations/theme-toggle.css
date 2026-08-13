@@ -13,8 +13,8 @@
         circle at 50% 0%,
         rgba(255, 255, 255, 0.95) 0%,
 
-        rgba(0, 0, 0, 0.6) 60%,
-        transparent 70%
+        rgba(0, 0, 0, 0.2) 60%,
+        transparent 30%
     );
     animation: lightOn 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
