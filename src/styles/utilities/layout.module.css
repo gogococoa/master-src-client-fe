@@ -27,3 +27,12 @@
 .w100 {
     width: 100%;
 }
+
+.maxScreenSize {
+    max-width: 1280px;
+}
+
+.px1 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}

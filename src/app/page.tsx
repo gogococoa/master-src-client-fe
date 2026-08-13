@@ -9,13 +9,6 @@ export default function HomePage() {
                 <p>We build things people love to use.</p>
             </section>
 
-            <section>
-                <div className={containerStyled.flexCenter}>
-                    <div>as</div>
-                    <div>bs</div>
-                </div>
-            </section>
-
             <section className={styles.posts}>
                 <h2>Latest Updates</h2>
 

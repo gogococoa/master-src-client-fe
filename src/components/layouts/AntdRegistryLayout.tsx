@@ -3,6 +3,7 @@
 import { Layout } from 'antd';
 import MenuHeader from '@/components/layouts/header/MenuHeader';
 import React from 'react';
+import containerStyled from '@/components/custom-components/custom-container.module.css'
 
 const { Content } = Layout;
 
@@ -10,7 +11,11 @@ export default function AntdRegistryLayout({ children }: { children: React.React
     return (
         <Layout>
             <MenuHeader />
-            <Content>{children}</Content>
+            <Content className={containerStyled.flexColumnCenter}>
+                <div className={containerStyled.mainContentWrapper}>
+{children}
+                </div>
+                </Content>
         </Layout>
     );
 }
