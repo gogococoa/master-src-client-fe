@@ -1,6 +1,6 @@
 'use client';
 import { useThemeContext } from '@/styles/themes/ThemeProvider';
-import { ThemeModeEnum } from '@/styles/themes/themeTokens';
+import { ThemeModeEnum } from '@/styles/themes/theme-tokens';
 
 export function ThemeToggle() {
   const { theme, setTheme } = useThemeContext();

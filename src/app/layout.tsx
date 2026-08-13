@@ -2,10 +2,11 @@ import AntdRegistryLayout from '@/components/layouts/AntdRegistryLayout';
 import AntdRegistry from '@/lib/antdCustom/AntdRegistry';
 import { AntdThemeProvider } from '@/lib/antdCustom/AntdThemeProvider';
 import '@/styles/globals.css';
+import '@/styles/styles.css/font.css'
 import { ThemeProvider } from '@/styles/themes/ThemeProvider';
-import { generateRootCss } from '@/styles/themes/applyToken';
-import { themeInitScript } from '@/styles/themes/themeInit';
-import { ThemeModeEnum } from '@/styles/themes/themeTokens';
+import { generateRootCss } from '@/styles/themes/apply-token';
+import { themeInitScript } from '@/styles/themes/theme-init';
+import { ThemeModeEnum } from '@/styles/themes/theme-tokens';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { cookies } from 'next/headers';

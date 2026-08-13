@@ -1,5 +1,5 @@
 'use client';
-import { getAntdTheme } from '@/styles/themes/antdTokens';
+import { getAntdTheme } from '@/styles/themes/antd-tokens';
 import { useThemeContext } from '@/styles/themes/ThemeProvider';
 import { ConfigProvider } from 'antd';
 

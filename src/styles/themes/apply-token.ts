@@ -1,4 +1,4 @@
-import { lightTokens, darkTokens, ThemeTokens} from "./themeTokens";
+import { lightTokens, darkTokens, ThemeTokens} from "./theme-tokens";
 
 function toCssVarName(key: string): string {
   return '--' + key.replace(/([A-Z])/g, '-$1').toLowerCase();

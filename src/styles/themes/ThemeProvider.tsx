@@ -1,7 +1,7 @@
 // src/styles/theme/ThemeProvider.tsx
 'use client';
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
-import { ThemeModeEnum } from './themeTokens';
+import { ThemeModeEnum } from './theme-tokens';
 
 interface IThemeContext {
     theme: ThemeModeEnum
