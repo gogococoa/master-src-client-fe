@@ -1,53 +1,80 @@
-.theme-flash {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0;
-    transform-origin: 50% 0%; /* <-- scale grows/shrinks from top-center */
+/* ==========================================================================
+   Theme Toggle Animation — View Transitions API (optimized mask-based reveal)
+   ========================================================================== */
+
+/* Disable the browser's default crossfade so our custom animation takes over */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
 }
 
-/* dark -> light: light "switches on" */
-.theme-flash.turning-on {
-    background: radial-gradient(
-        circle at 50% 0%,
-        rgba(255, 255, 255, 0.95) 0%,
-
-        rgba(0, 0, 0, 0.2) 60%,
-        transparent 30%
-    );
-    animation: lightOn 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+/* GPU layer hints — applied to both states */
+::view-transition-old(root),
+::view-transition-new(root) {
+    will-change: mask-image, mask-size;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
-@keyframes lightOn {
-    0% {
-        opacity: 0;
-        transform: scale(0.3);
+/* ---------- dark -> light: new (light) page reveals in from top-center ---------- */
+
+[data-theme-direction='to-light']::view-transition-new(root) {
+    -webkit-mask-image: radial-gradient(circle at 50% 0%, black 0%, black 40%, transparent 70%);
+    mask-image: radial-gradient(circle at 50% 0%, black 0%, black 40%, transparent 70%);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: 50% 0%;
+    mask-position: 50% 0%;
+    -webkit-mask-size: 0% 0%;
+    mask-size: 0% 0%;
+    animation: reveal-in 0.5s ease-out forwards;
+}
+
+[data-theme-direction='to-light']::view-transition-old(root) {
+    animation: none;
+    z-index: -1;
+}
+
+@keyframes reveal-in {
+    from {
+        -webkit-mask-size: 0% 0%;
+        mask-size: 0% 0%;
     }
-    40% {
-        opacity: 0.9;
-        transform: scale(1.1);
-    }
-    100% {
-        opacity: 0;
-        transform: scale(1.6);
+    to {
+        -webkit-mask-size: 300% 300%;
+        mask-size: 300% 300%;
     }
 }
 
-/* light -> dark: light "switches off" */
-.theme-flash.turning-off {
-    background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.9), transparent 70%);
+/* ---------- light -> dark: old (light) page fades out from top-center ---------- */
 
-    animation: lightOff 0.7s cubic-bezier(0.64, 0, 0.78, 0);
+[data-theme-direction='to-dark']::view-transition-old(root) {
+    /* -webkit-mask-image: radial-gradient(circle at 50% 0%, black 0%, black 40%, transparent 70%);
+  mask-image: radial-gradient(circle at 50% 0%, black 0%, black 40%, transparent 70%); */
+    -webkit-mask-image: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.9), transparent 70%);
+    mask-image: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.9), transparent 70%);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: 50% 0%;
+    mask-position: 50% 0%;
+    -webkit-mask-size: 300% 300%;
+    mask-size: 300% 300%;
+    animation: reveal-out 0.5s ease-out forwards;
 }
 
-@keyframes lightOff {
-    0% {
-        opacity: 0.9;
-        transform: scale(1.6);
+[data-theme-direction='to-dark']::view-transition-new(root) {
+    animation: none;
+    z-index: -1;
+}
+
+@keyframes reveal-out {
+    from {
+        -webkit-mask-size: 300% 300%;
+        mask-size: 300% 300%;
     }
-    100% {
-        opacity: 0;
-        transform: scale(0.2);
+    to {
+        -webkit-mask-size: 0% 0%;
+        mask-size: 0% 0%;
     }
 }

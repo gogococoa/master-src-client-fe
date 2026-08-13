@@ -5,21 +5,22 @@ import { ThemeModeEnum } from '@/styles/themes/theme-tokens';
 export function ThemeToggle() {
     const { theme, setTheme } = useThemeContext();
 
-    const handleToggle = () => {
+    const handleToggleV2 = () => {
         const isDark = theme === ThemeModeEnum.DARK;
         const nextTheme = isDark ? ThemeModeEnum.LIGHT : ThemeModeEnum.DARK;
 
-        // Create the flash overlay element
-        const flash = document.createElement('div');
-        flash.className = `theme-flash ${isDark ? 'turning-on' : 'turning-off'}`;
-        document.body.appendChild(flash);
+        // Fallback for unsupported browsers (Safari < 18, older Firefox)
+        if (!document.startViewTransition) {
+            setTheme(nextTheme);
+            return;
+        }
 
-        // Swap the theme (this triggers your CSS variable transition)
-        setTheme(nextTheme);
+        document.documentElement.dataset.themeDirection = isDark ? 'to-light' : 'to-dark';
 
-        // Clean up the overlay after animation finishes
-        flash.addEventListener('animationend', () => flash.remove());
+        document.startViewTransition(() => {
+            setTheme(nextTheme);
+        });
     };
 
-    return <button onClick={() => handleToggle()}>{theme === 'dark' ? '☀️ Light' : '🌙 Dark'}</button>;
+    return <button onClick={() => handleToggleV2()}>{theme === 'dark' ? '☀️ Light' : '🌙 Dark'}</button>;
 }
