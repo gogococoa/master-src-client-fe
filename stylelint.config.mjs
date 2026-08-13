@@ -8,6 +8,6 @@ export default {
         //         message: 'Expected class selector to be camelCase',
         //     },
         // ],
-        'selector-class-pattern': null
+        'selector-class-pattern': null,
     },
 };
