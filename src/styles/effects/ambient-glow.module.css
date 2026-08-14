@@ -1,0 +1,34 @@
+/* ==========================================================================
+   Ambient Glow — top-of-page light source
+   ========================================================================== */
+
+.glowOrb {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* width: 900px;
+  height: 900px; */
+    width: clamp(500px, 80vw, 1000px);
+    height: clamp(500px, 80vw, 1000px);
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        var(--color-primary) 0%,
+        color-mix(in srgb, var(--color-primary) 45%, white) 35%,
+        transparent 70%
+    );
+    filter: blur(80px);
+    opacity: 0.45;
+    pointer-events: none;
+    z-index: 0;
+}
+
+[data-theme='light'] .glowOrb {
+    opacity: 0.35;
+}
+
+[data-theme='dark'] .glowOrb {
+    opacity: 0.55;
+    filter: blur(100px);
+}

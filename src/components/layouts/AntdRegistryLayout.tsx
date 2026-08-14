@@ -9,7 +9,7 @@ const { Content } = Layout;
 
 export default function AntdRegistryLayout({ children }: { children: React.ReactNode }) {
     return (
-        <Layout>
+        <Layout className={containerStyled.mainLayoutWrapper}>
             <MenuHeader />
             <Content className={containerStyled.flexColumnCenter}>
                 <div className={containerStyled.mainContentWrapper}>{children}</div>
