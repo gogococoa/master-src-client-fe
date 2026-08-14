@@ -1,5 +1,5 @@
 {
-    "name": "master-src-client-fe",
+    "name": "bedrock-client-fe",
     "version": "0.1.0",
     "private": true,
     "scripts": {
