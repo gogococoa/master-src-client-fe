@@ -1,4 +1,4 @@
-import { ThemeToggle } from '@/components/buttons/ThemeToggle';
+import { ThemeToggle } from '@/components/buttons/theme-toggle/ThemeToggle';
 import container from '@/components/custom-components/custom-container.module.css';
 import { HomeFilled } from '@ant-design/icons';
 import { Button, Layout } from 'antd';

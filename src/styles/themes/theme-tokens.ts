@@ -3,12 +3,31 @@ export const lightTokens = {
     foreground: '#171717',
     colorPrimary: '#4f69ff',
 
-    transition: 'background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1), color 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+    /* ==========================================================================
+   Theme Switch — sliding pill with day/night ambient sky
+   ========================================================================== */
+    themeSwitchBgPrimary: '#7ec8f2',
+    themeSwitchBgSecondary: '#bfe8ff',
+    themeSwitchStar: 'white',
+    themeSwitchThumb: 'white',
+    themeSwitchThumbCore: '#ffb703',
+    // ==========================================================================
 } as const;
 
 export const darkTokens = {
     background: '#0a0a0a',
     foreground: '#ededed',
+
+    /* ==========================================================================
+   Theme Switch — sliding pill with day/night ambient sky
+   ========================================================================== */
+    themeSwitchBgPrimary: '#0b1130',
+    themeSwitchBgSecondary: '#1c2452',
+
+    themeSwitchThumb: '#e8ecf7',
+
+    themeSwitchThumbCore: '#6b7394',
+    // ==========================================================================
 } as const;
 
 export type ThemeTokens = Record<keyof typeof lightTokens, string>;

@@ -1,0 +1,138 @@
+/* ==========================================================================
+   Theme Switch — sliding pill with day/night ambient sky
+   ========================================================================== */
+
+.themeSwitch {
+    position: relative;
+    width: 56px;
+    height: 28px;
+    border: none;
+    border-radius: 999px;
+    padding: 0;
+    cursor: pointer;
+    overflow: hidden;
+    background: linear-gradient(to bottom, var(--theme-switch-bg-primary), var(--theme-switch-bg-secondary));
+    transition: background 0.6s ease;
+}
+
+/* [data-theme='dark'] .themeSwitch {
+  background: linear-gradient(to bottom, #0b1130, #1c2452);
+} */
+
+/* ---- Stars, visible only in dark mode ---- */
+
+.switchStars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.starDot {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: var(--theme-switch-star);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.s1 {
+    top: 6px;
+    left: 10px;
+    transition-delay: 0.1s;
+}
+.s2 {
+    top: 16px;
+    left: 16px;
+    transition-delay: 0.2s;
+}
+.s3 {
+    top: 8px;
+    left: 22px;
+    transition-delay: 0.3s;
+}
+.s4 {
+    top: 18px;
+    left: 8px;
+    transition-delay: 0.15s;
+}
+
+[data-theme='dark'] .starDot {
+    opacity: 1;
+}
+
+/* ---- Sliding thumb ---- */
+
+.switchThumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--theme-switch-thumb);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+        transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+        background 0.5s ease;
+}
+
+[data-theme='dark'] .switchThumb {
+    transform: translateX(28px);
+}
+
+/* ---- Icon inside the thumb (same morph logic as before) ---- */
+
+.thumbIcon {
+    width: 16px;
+    height: 16px;
+    overflow: visible;
+}
+
+.thumbCore {
+    fill: var(--theme-switch-thumb-core);
+    transition: fill 0.4s ease;
+}
+
+.thumbMask {
+    fill: var(--theme-switch-thumb);
+    transform: translate(0, 0);
+    opacity: 0;
+    transition:
+        transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+        opacity 0.3s ease,
+        fill 0.4s ease;
+}
+
+[data-theme='dark'] .thumbMask {
+    transform: translate(3px, -2px);
+    opacity: 1;
+}
+
+.thumbRays {
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    transform-origin: 12px 12px;
+}
+
+[data-theme='dark'] .thumbRays {
+    transform: rotate(90deg);
+}
+
+.thumbRay {
+    stroke: var(--theme-switch-thumb-core);
+    stroke-width: 2;
+    stroke-linecap: round;
+    transition:
+        opacity 0.3s ease,
+        transform 0.4s ease;
+    opacity: 1;
+}
+
+[data-theme='dark'] .thumbRay {
+    opacity: 0;
+    transform: scale(0.4);
+}
