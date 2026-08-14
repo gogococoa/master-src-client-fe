@@ -1,1 +1,2 @@
-yarn format
+#!/usr/bin/env sh
+pretty-quick --staged

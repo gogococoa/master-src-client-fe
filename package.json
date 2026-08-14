@@ -16,11 +16,6 @@
     "engines": {
         "node": ">=22.15.0"
     },
-    "husky": {
-        "hooks": {
-            "pre-commit": "pretty-quick --staged"
-        }
-    },
     "config": {
         "commitizen": {
             "path": "node_modules/cz-git"
