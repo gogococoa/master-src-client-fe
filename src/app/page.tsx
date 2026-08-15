@@ -1,8 +1,10 @@
 'use client';
 
-import styles from './page.module.css';
-import containerStyled from '@/components/custom-components/custom-container.module.css';
+import BrandIcon from '@/components/icons/logo/BrandIcon';
+import LogoIcon from '@/components/icons/logo/LogoIcon';
 import ambientGlowStyled from '@/styles/effects/ambient-glow.module.css';
+import fontStyle from '@/styles/utilities/font.module.css';
+import styles from './page.module.css';
 
 export default function HomePage() {
     const mockArr = new Array(20).fill(0);
@@ -12,8 +14,7 @@ export default function HomePage() {
             <div className={ambientGlowStyled.glowOrb} aria-hidden="true" />
 
             <section className={styles.hero}>
-                <h2>Welcome to My Company</h2>
-                <p>We build things people love to use.</p>
+                <BrandIcon className={fontStyle.text9Xl} />
             </section>
 
             <section className={styles.posts}>
