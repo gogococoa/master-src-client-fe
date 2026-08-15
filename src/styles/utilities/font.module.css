@@ -2,6 +2,22 @@
     font-size: 1rem;
 }
 
+.textXl {
+    font-size: 1.25rem;
+}
+
+.text2Xl {
+    font-size: 1.5rem;
+}
+
+.text4Xl {
+    font-size: 2.25rem;
+}
+
 .text5Xl {
     font-size: 3rem;
+}
+
+.text9Xl {
+    font-size: 8rem;
 }

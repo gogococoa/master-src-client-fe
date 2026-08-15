@@ -13,7 +13,7 @@ export function getAntdTheme(mode: ThemeModeEnum): ThemeConfig {
         },
         components: {
             Layout: {
-                headerBg: merged.colorPrimary,
+                headerBg: merged.background,
             },
         },
         algorithm: mode === ThemeModeEnum.DARK ? theme.darkAlgorithm : theme.defaultAlgorithm,

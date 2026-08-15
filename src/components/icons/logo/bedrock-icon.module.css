@@ -1,0 +1,97 @@
+/* bedrock-icon.module.css */
+
+.bedIcon {
+    --icon-base: var(--color-primary);
+}
+
+.bedIcon.themeLight {
+    --icon-base: #ffffff;
+}
+
+.bedIcon.themeDark {
+    --icon-base: #0a0a0a;
+}
+
+.mattress {
+    fill: var(--icon-base);
+}
+
+.bedIcon.themeDark .mattress {
+    fill: color-mix(in srgb, var(--icon-base) 83%, white);
+}
+
+.pillow {
+    fill: color-mix(in srgb, var(--icon-base) 60%, white);
+}
+
+.legs {
+    fill: color-mix(in srgb, var(--icon-base) 80%, black);
+}
+
+.bedIcon.themeDark .legs {
+    fill: color-mix(in srgb, var(--icon-base) 94%, white);
+}
+
+.post {
+    fill: color-mix(in srgb, var(--icon-base) 40%, black);
+}
+
+.letterB {
+    fill: var(--icon-base);
+}
+.letterE {
+    fill: color-mix(in srgb, var(--icon-base) 85%, white);
+}
+.letterD {
+    fill: color-mix(in srgb, var(--icon-base) 70%, white);
+}
+.letterR {
+    fill: color-mix(in srgb, var(--icon-base) 85%, black);
+}
+.letterO {
+    fill: color-mix(in srgb, var(--icon-base) 70%, black);
+}
+.letterC {
+    fill: color-mix(in srgb, var(--icon-base) 55%, black);
+}
+.letterK {
+    fill: var(--icon-base);
+}
+
+.bedIcon.themeLight .letterE {
+    fill: color-mix(in srgb, var(--icon-base) 90%, black);
+}
+.bedIcon.themeLight .letterD {
+    fill: color-mix(in srgb, var(--icon-base) 80%, black);
+}
+.bedIcon.themeLight .letterR {
+    fill: color-mix(in srgb, var(--icon-base) 65%, black);
+}
+.bedIcon.themeLight .letterO {
+    fill: color-mix(in srgb, var(--icon-base) 50%, black);
+}
+.bedIcon.themeLight .letterC {
+    fill: color-mix(in srgb, var(--icon-base) 35%, black);
+}
+.bedIcon.themeLight .letterK {
+    fill: color-mix(in srgb, var(--icon-base) 20%, black);
+}
+
+.bedIcon.themeDark .letterE {
+    fill: color-mix(in srgb, var(--icon-base) 90%, white);
+}
+.bedIcon.themeDark .letterD {
+    fill: color-mix(in srgb, var(--icon-base) 80%, white);
+}
+.bedIcon.themeDark .letterR {
+    fill: color-mix(in srgb, var(--icon-base) 65%, white);
+}
+.bedIcon.themeDark .letterO {
+    fill: color-mix(in srgb, var(--icon-base) 50%, white);
+}
+.bedIcon.themeDark .letterC {
+    fill: color-mix(in srgb, var(--icon-base) 35%, white);
+}
+.bedIcon.themeDark .letterK {
+    fill: color-mix(in srgb, var(--icon-base) 20%, white);
+}
