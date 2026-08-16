@@ -16,10 +16,11 @@
     composes: flex column center from '../../styles/utilities/layout.module.css';
 }
 
-.mainContentWrapper {
+.contentWrapper {
     composes: maxScreenSize w100 px1 relative from '../../styles/utilities/layout.module.css';
-    /* background: red; */
 }
-.mainLayoutWrapper.mainLayoutWrapper {
-    min-height: 100vh;
+
+.headerWrapper {
+    composes: flex between center w100 from '../../styles/utilities/layout.module.css';
+    height: var(--header-wrapper-height);
 }
